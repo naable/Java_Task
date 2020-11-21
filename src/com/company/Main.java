@@ -6,10 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.io.*;
 import java.util.Scanner;
-import java.util.regex.Pattern;
-
-import com.company.Card;
-import com.company.Product;
 
 public class Main {
 
@@ -53,9 +49,9 @@ public class Main {
         Scanner fileName = new Scanner(new FileInputStream(args[0]));
         String[] divide = fileName.nextLine().split(" ");
         int cardNumber = 0;
-        for (int i = 0; i < divide.length; i++) {
-            if (divide[i].contains("card-")) {
-                cardNumber = Integer.parseInt(divide[i].replaceAll("card-", ""));
+        for (String s : divide) {
+            if (s.contains("card-")) {
+                cardNumber = Integer.parseInt(s.replaceAll("card-", ""));
             }
         }
         return cardNumber;
@@ -76,7 +72,6 @@ public class Main {
     public static void checkCount(int[] products) throws IOException {
         float currentProdSum;
         File file = new File("Example.txt");
-        file.createNewFile();
         FileWriter writer = new FileWriter(file);
         System.out.println("\t\t\tCASH RECEIPT\t\t\t");
         writer.write("\t\t\tCASH RECEIPT\t\t\t\n");
@@ -94,17 +89,17 @@ public class Main {
         writer.write("___________________________________________\n");
         System.out.println("Amount\tDescription\t\t\tPrice\tTotal");
         writer.write("Amount\tDescription\t\t\tPrice\tTotal\n");
-        for(int i = 0; i < products.length; i++){
-            for(Product product: productsList){
-                if(product.getId() == products[i]/10){
-                    currentProdSum = (product.getPrice() * (products[i]%10));
-                    System.out.print(products[i]%10 + "\t\t" + product.getName() + "\t\t\t\t" + product.getPrice() + "\t");
-                    writer.write("\n" + products[i]%10 + "\t\t" + product.getName() + "\t\t\t" + product.getPrice() + "\t");
-                    if(product.getDiscount() && (products[i]%10)>5) {
+        for (int j : products) {
+            for (Product product : productsList) {
+                if (product.getId() == j / 10) {
+                    currentProdSum = (product.getPrice() * (j % 10));
+                    System.out.print(j % 10 + "\t\t" + product.getName() + "\t\t\t\t" + product.getPrice() + "\t");
+                    writer.write("\n" + j % 10 + "\t\t" + product.getName() + "\t\t\t" + product.getPrice() + "\t");
+                    if (product.getDiscount() && (j % 10) > 5) {
                         currentProdSum = currentProdSum - (currentProdSum * 0.1f);
                     }
                     System.out.println(currentProdSum);
-                    writer.write( currentProdSum + "\n");
+                    writer.write(currentProdSum + "\n");
                     total += currentProdSum;
                 }
             }

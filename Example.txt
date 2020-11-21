@@ -2,8 +2,8 @@
 			SUPERMARKET 123			
 			VILLAGE KUKUEVO, 1			
 			Tel : +123-456-7890			
-Cashier	№8					Date: 21-11-2020
-						Time: 03:02:32
+Cashier	№41					Date: 21-11-2020
+						Time: 03:12:52
 ___________________________________________
 Amount	Description			Price	Total
 
