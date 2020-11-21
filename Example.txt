@@ -1,0 +1,22 @@
+			CASH RECEIPT			
+			SUPERMARKET 123			
+			VILLAGE KUKUEVO, 1			
+			Tel : +123-456-7890			
+Cashier	№8					Date: 21-11-2020
+						Time: 03:02:32
+___________________________________________
+Amount	Description			Price	Total
+
+1		Beef			10.23	10.23
+
+5		Milk			3.19	15.950001
+
+1		Carrot			6.81	6.81
+
+3		Bread			1.45	4.3500004
+
+3		Onion			4.12	12.36
+___________________________________________
+Total without discount				49.700005
+Discount					15%
+Total						42.245003
